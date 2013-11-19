@@ -49,6 +49,9 @@ public class AnimatedSprite
     private bool loopAnimation = true; //Whether to play back from the beginning when the animation ends
     private bool animating = false; //Are we currently animating?
 
+    public float defaultPlaybackRate = 1; //Default playback rate
+    public bool doesLoop = false; //If this should loop by default
+
     //Animation
     private int currentAnimationID = -1;
     private List<int> animations = new List<int>();
@@ -57,8 +60,10 @@ public class AnimatedSprite
     public event AnimationEvent onAnimationEnd; //Called once when this animated sprite finishes animating
 
     //Constructor
-    public AnimatedSprite(Texture2D spriteSheet, int subimageCount, int cellWidth, int cellHeight, int paddingWidth = 0, int paddingHeight = 0, int offsetX = 0, int offsetY = 0)
+    public AnimatedSprite(Texture2D spriteSheet, int subimageCount, int cellWidth, int cellHeight, float defaultPlaybackRate = 1, bool doesLoop = false, int paddingWidth = 0, int paddingHeight = 0, int offsetX = 0, int offsetY = 0)
     {
+        this.defaultPlaybackRate = defaultPlaybackRate;
+        this.doesLoop = doesLoop;
         int cellPaddedWidth = cellWidth + paddingWidth * 2;
         int cellPaddedHeight = cellHeight + paddingHeight * 2;
         int cellsH = (spriteSheet.width - offsetX) / cellPaddedWidth;
@@ -89,6 +94,11 @@ public class AnimatedSprite
     {
         animations.Add(startFrame + (endFrame << 16)); //Serialize startFrame and endFrame as two shorts, into one int
         return animations.Count - 1;
+    }
+
+    public void PlayAnimation()
+    {
+        PlayAnimation(0, count - 1, defaultPlaybackRate, doesLoop);
     }
 
     public void PlayAnimation(int startIndex, int endIndex, float playbackRate, bool loopAnimation = false)
