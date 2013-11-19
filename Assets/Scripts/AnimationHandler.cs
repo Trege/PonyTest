@@ -26,6 +26,8 @@ public class AnimationHandler : MonoBehaviour
     public bool reverseAnimation = false;
     public int framesPerSecond = 30;
     public PlayerStates state = PlayerStates.Walk; //This value stores the player state.//
+    public int maxImages = 0;
+        
 
 	void Start()
     {
