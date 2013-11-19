@@ -12,7 +12,7 @@ public class AnimationHandler : MonoBehaviour
     }
 
     AnimatedSprite[] sprites = new AnimatedSprite[3];
-    private AnimatedSprite sprite
+    public AnimatedSprite sprite
     {
         get
         {
@@ -20,7 +20,7 @@ public class AnimationHandler : MonoBehaviour
         }
     }
 
-    private PlayerStates _state; //This value stores the player state.//
+    private PlayerStates _state = PlayerStates.Stand; //This value stores the player state.//
     public PlayerStates state
     {
         get
@@ -29,8 +29,11 @@ public class AnimationHandler : MonoBehaviour
         }
         set
         {
-            _state = value;
-            sprite.PlayAnimation();
+            if (_state != value)
+            {
+                _state = value;
+                sprite.PlayAnimation();
+            }
         }
     }
     
@@ -43,10 +46,11 @@ public class AnimationHandler : MonoBehaviour
     {
         sprites[0] = new AnimatedSprite(Resources.Load("Apple Bloom/AB_SR") as Texture2D, 135, 100, 102, 30, true);
         sprites[1] = new AnimatedSprite(Resources.Load("Apple Bloom/AB_WR") as Texture2D, 16, 100, 102, 30, true);
-        sprites[2] = new AnimatedSprite(Resources.Load("Apple Bloom/AB_JR") as Texture2D, 135, 100, 102, 30);
+        sprites[2] = new AnimatedSprite(Resources.Load("Apple Bloom/AB_JR") as Texture2D, 23, 102, 122, 30);
         sprite.onAnimationStart += OnAnimationStart;
         sprite.onAnimationEnd += OnAnimationEnd;
         state = PlayerStates.Stand;
+        sprite.PlayAnimation();
 	}
 	
 	void Update ()
@@ -57,11 +61,11 @@ public class AnimationHandler : MonoBehaviour
 
     void OnAnimationStart(object sender, AnimationArgs args)
     {
-        Debug.Log(name + ": Starting animation.");
+        //Debug.Log(name + ": Starting animation.");
     }
 
     void OnAnimationEnd(object sender, AnimationArgs args)
     {
-        Debug.Log(name + ": Done animating.");
+        //Debug.Log(name + ": Done animating.");
     }
 }

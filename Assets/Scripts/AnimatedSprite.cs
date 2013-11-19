@@ -170,6 +170,7 @@ public class AnimatedSprite
                 else
                 {
                     currentIndex = -1;
+                    index = endIndex;
                     animating = false;
                     if (onAnimationEnd != null)
                         onAnimationEnd(this, new AnimationArgs(currentAnimationID, index));
