@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-public enum PlayerStates { Stand, Walk, Jump } //0 = Stand 1 = Walk 2 = Jump//
+public enum PlayerStates { Stand, Walk, Jump, Hit } //Stand = 0; Walk = 1; Jump = 2; Hit = 3; //
 public class AnimationHandler : MonoBehaviour
 {
     private int stateIndex
@@ -44,9 +44,9 @@ public class AnimationHandler : MonoBehaviour
 
 	void Start()
     {
-        sprites[0] = new AnimatedSprite(Resources.Load("Apple Bloom/AB_SR") as Texture2D, 135, 100, 102, 30, true);
-        sprites[1] = new AnimatedSprite(Resources.Load("Apple Bloom/AB_WR") as Texture2D, 16, 100, 102, 30, true);
-        sprites[2] = new AnimatedSprite(Resources.Load("Apple Bloom/AB_JR") as Texture2D, 23, 102, 122, 30);
+        sprites[0] = new AnimatedSprite(Resources.Load("Apple Bloom/AB_SR") as Texture2D, 135, 100, 102, 15, true);
+        sprites[1] = new AnimatedSprite(Resources.Load("Apple Bloom/AB_WR") as Texture2D, 16, 100, 102, 15, true);
+        sprites[2] = new AnimatedSprite(Resources.Load("Apple Bloom/AB_JR") as Texture2D, 23, 102, 122, 15);
         sprite.onAnimationStart += OnAnimationStart;
         sprite.onAnimationEnd += OnAnimationEnd;
         state = PlayerStates.Stand;

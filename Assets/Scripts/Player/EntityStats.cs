@@ -1,10 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EntityStats : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+public class EntityStats : MonoBehaviour {
+    public int hp;
+    public int sp;
+    public int str;
+    public int def;
+    public float agi;
+	
+    
+    
+    
+    // Use this for initialization
+	void Start () 
+    {
 	
 	}
 	

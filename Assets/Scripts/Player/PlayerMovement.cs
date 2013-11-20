@@ -2,11 +2,12 @@
 using System.Collections;
 
 
+
 public class PlayerMovement : MonoBehaviour  
 {
     Rigidbody body;
-    public float speed = 3;
-    public float maxSpeed = 7;
+    public float speed = 1;
+    public float maxSpeed = 2;
     public float horizontalDrag = 0.1f;
     private Vector3 dragVec = new Vector3(1, 0, 1);
     private bool canJump = true;
@@ -17,7 +18,8 @@ public class PlayerMovement : MonoBehaviour
     private Transform trans;
     public Renderer spriteRenderer;
     private Material spriteMat;
-	// Use this for initialization
+    private EntityStats stats;
+    // Use this for initialization
 	void Start ()
     {
         body = GetComponent<Rigidbody>();
@@ -25,6 +27,8 @@ public class PlayerMovement : MonoBehaviour
         animation = spriteRenderer.GetComponent<AnimationHandler>();
         spriteMat = spriteRenderer.material;
         body.AddForce(1,1,1);
+        speed = stats.agi*40;
+        maxSpeed = stats.agi*99;
     }
 	
 	
@@ -37,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
         else if (Input.GetAxis("Horizontal") < 0)
             sign = -1;
         if (Mathf.Abs(body.velocity.x) < maxSpeed)
-            body.AddForce(sign * speed, 4, 0);
+            body.AddForce(sign * speed, 2, 0);
 
         //Apply horizontal friction
         if (sign == 0)
