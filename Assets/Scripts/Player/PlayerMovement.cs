@@ -4,8 +4,8 @@ using System.Collections;
 public class PlayerMovement : MonoBehaviour  
 {
     Rigidbody body;
-    public float speed = 1;
-    public float maxSpeed = 2;
+    public float speed = 0;
+    public float maxSpeed = 0;
     public float horizontalDrag = 0.1f;
     private Vector3 dragVec = new Vector3(1, 0, 1);
     private bool canJump = true;
@@ -20,13 +20,14 @@ public class PlayerMovement : MonoBehaviour
     // Use this for initialization
 	void Start ()
     {
+        stats = GetComponent<EntityStats>();
         body = GetComponent<Rigidbody>();
         trans = GetComponent<Transform>();
         animation = spriteRenderer.GetComponent<AnimationHandler>();
         spriteMat = spriteRenderer.material;
         body.AddForce(1,1,1);
-        speed = stats.agi*40;
-        maxSpeed = stats.agi*99;
+        speed = stats.agi;
+        maxSpeed = stats.agi;
     }
 	
 	
