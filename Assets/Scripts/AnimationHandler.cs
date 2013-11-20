@@ -1,22 +1,34 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
+
 public enum PlayerStates { Stand, Walk, Jump, Hit } //Stand = 0; Walk = 1; Jump = 2; Hit = 3; //
+public enum PlayerName { AppleBloom, SweetieBelle, Scootaloo, PlaceHolder }; //0 = AppleBloom//1 = Sweetiebelle//2 = Scootaloo//
 public class AnimationHandler : MonoBehaviour
 {
-    private int stateIndex
-    {
-        get
-        {
-            return (int)state;
-        }
-    }
-
-    AnimatedSprite[] sprites = new AnimatedSprite[3];
+    AnimatedSprite[,] sprites = new AnimatedSprite[Enum.GetNames(typeof(PlayerName)).Length, Enum.GetNames(typeof(PlayerStates)).Length];
     public AnimatedSprite sprite
     {
         get
         {
-            return sprites[stateIndex];
+            return sprites[(int)character, (int)state];
+        }
+    }
+
+    private PlayerName _character = PlayerName.AppleBloom; //This value stores the player state.//
+    public PlayerName character
+    {
+        get
+        {
+            return _character;
+        }
+        set
+        {
+            if (_character != value)
+            {
+                _character = value;
+                sprite.PlayAnimation();
+            }
         }
     }
 
@@ -44,12 +56,27 @@ public class AnimationHandler : MonoBehaviour
 
 	void Start()
     {
-        sprites[0] = new AnimatedSprite(Resources.Load("Apple Bloom/AB_SR") as Texture2D, 135, 100, 102, 15, true);
-        sprites[1] = new AnimatedSprite(Resources.Load("Apple Bloom/AB_WR") as Texture2D, 16, 100, 102, 15, true);
-        sprites[2] = new AnimatedSprite(Resources.Load("Apple Bloom/AB_JR") as Texture2D, 23, 102, 122, 15);
+        PlayerName playerName;
+        
+        //Applebloom
+        playerName = PlayerName.AppleBloom;
+        sprites[(int)playerName, (int)PlayerStates.Stand] = new AnimatedSprite(Resources.Load("Apple Bloom/AB_SR") as Texture2D, 135, 100, 102, 15, true);
+        sprites[(int)playerName, (int)PlayerStates.Walk] = new AnimatedSprite(Resources.Load("Apple Bloom/AB_WR") as Texture2D, 16, 100, 102, 15, true);
+        sprites[(int)playerName, (int)PlayerStates.Jump] = new AnimatedSprite(Resources.Load("Apple Bloom/AB_JR") as Texture2D, 23, 102, 122, 15);
+        //Sweetiebelle
+        playerName = PlayerName.SweetieBelle;
+        sprites[(int)playerName, (int)PlayerStates.Stand] = new AnimatedSprite(Resources.Load("Apple Bloom/AB_SR") as Texture2D, 135, 100, 102, 15, true);
+        sprites[(int)playerName, (int)PlayerStates.Walk] = new AnimatedSprite(Resources.Load("Apple Bloom/AB_WR") as Texture2D, 16, 100, 102, 15, true);
+        sprites[(int)playerName, (int)PlayerStates.Jump] = new AnimatedSprite(Resources.Load("Apple Bloom/AB_JR") as Texture2D, 23, 102, 122, 15);
+        //Scootaloo
+        playerName = PlayerName.Scootaloo;
+        sprites[(int)playerName, (int)PlayerStates.Stand] = new AnimatedSprite(Resources.Load("Apple Bloom/AB_SR") as Texture2D, 135, 100, 102, 15, true);
+        sprites[(int)playerName, (int)PlayerStates.Walk] = new AnimatedSprite(Resources.Load("Apple Bloom/AB_WR") as Texture2D, 16, 100, 102, 15, true);
+        sprites[(int)playerName, (int)PlayerStates.Jump] = new AnimatedSprite(Resources.Load("Apple Bloom/AB_JR") as Texture2D, 23, 102, 122, 15);
+
+        //Setup animation stuff
         sprite.onAnimationStart += OnAnimationStart;
         sprite.onAnimationEnd += OnAnimationEnd;
-        state = PlayerStates.Stand;
         sprite.PlayAnimation();
 	}
 	

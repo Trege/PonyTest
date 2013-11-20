@@ -162,7 +162,7 @@ public class AnimatedSprite
                         onAnimationEnd(this, new AnimationArgs(currentAnimationID, index));
                 }
             }
-
+            
             if (currentIndex > endIndex)
             {
                 if (loopAnimation)

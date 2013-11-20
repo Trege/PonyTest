@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Sprite_Animation : MonoBehaviour {
-
+public class Sprite_Animation : MonoBehaviour
+{
 	// Use this for initialization
 	void Start () 
     
