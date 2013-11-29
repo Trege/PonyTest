@@ -4,12 +4,14 @@ using System.Collections;
 
 public class EntityStats
 {
-    public int maxhp;  //Max hitPoints//
-    public int hp;    //hitPoints//
-    public int sp;    //MP/Stamina//
-    public int str;   //Strength//
-    public int def;   //Defense//
+    public float maxhp;  //Max hitPoints//
+    public float hp;    //hitPoints//
+    public float sp;    //MP/Stamina//
+    public float str;   //Strength//
+    public float def;   //Defense//
     public float agi; //Agility//
-    public int fli;   //Flight //
-    public int LVL;   //The Entity's current level.//
+    public float fli;   //Flight //
+    public float LVL;   //The Entity's current level.//
+    
+        
 }

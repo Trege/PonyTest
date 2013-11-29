@@ -1,10 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class AppleBloomStats : MonoBehaviour 
-
+public class AppleBloomStats : PlayerStats
+   
 {
-   static public EntityStats stats = new EntityStats();
+
+   static public PlayerStats stats = new PlayerStats();
+   public void PlayerStats(float maxhp, float hp, float hpGrowth, float agiGrowth) //Constructor.//
+    
+   
+   
+{
+    stats.maxhp = 20; this.hp = this.maxhp;
+}
 
 	// Use this for initialization
 	void Start () 
@@ -24,11 +32,12 @@ public class AppleBloomStats : MonoBehaviour
 	void Update () 
     {
 
-        stats.maxhp = 20*stats.LVL;    //Max hitPoints//
+        stats.maxhp = 20;    //Max hitPoints//
         stats.sp = 10*stats.LVL;    //MP/Stamina//
         stats.str = 4*stats.LVL;    //Strength//
         stats.def = 4*stats.LVL;    //Defense//
         stats.agi = 5*stats.LVL;    //Agility//
+        
         
 	}
 }

@@ -1,6 +1,8 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2008
 
+Project("{097906AD-31A2-A36F-9757-D7D313B48D01}") = "PonyTest", "Assembly-CSharp-firstpass.csproj", "{DD8783F2-1B86-E31A-5BB1-332023235DD9}"
+EndProject
 Project("{097906AD-31A2-A36F-9757-D7D313B48D01}") = "PonyTest", "Assembly-CSharp.csproj", "{66C9567B-E4DB-E803-EB17-BE70133297F4}"
 EndProject
 Project("{097906AD-31A2-A36F-9757-D7D313B48D01}") = "PonyTest", "Assembly-UnityScript-firstpass.unityproj", "{090FD7AD-15CA-D359-CDD9-EFCEA236426A}"
@@ -11,6 +13,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DD8783F2-1B86-E31A-5BB1-332023235DD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD8783F2-1B86-E31A-5BB1-332023235DD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD8783F2-1B86-E31A-5BB1-332023235DD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD8783F2-1B86-E31A-5BB1-332023235DD9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{66C9567B-E4DB-E803-EB17-BE70133297F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{66C9567B-E4DB-E803-EB17-BE70133297F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66C9567B-E4DB-E803-EB17-BE70133297F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -23,7 +29,7 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-																												GlobalSection(MonoDevelopProperties) = preSolution
+																																												GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1

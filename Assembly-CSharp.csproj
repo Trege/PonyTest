@@ -50,11 +50,15 @@
      <Compile Include="Assets\Scripts\Player\AnimationHandler.cs" />
      <Compile Include="Assets\Scripts\Player\Characters\AB_STATBARS.cs" />
      <Compile Include="Assets\Scripts\Player\Characters\AppleBloomStats.cs" />
+     <Compile Include="Assets\Scripts\Player\Characters\PlayerStats.cs" />
      <Compile Include="Assets\Scripts\Player\EntityStats.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
      <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
+     <None Include="Assets\Standard Assets\Water (Basic)\Sources\Shaders\FX-Water Simple.shader" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{DD8783F2-1B86-E31A-5BB1-332023235DD9}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
     <ProjectReference Include="Assembly-UnityScript-firstpass.unityproj">
       <Project>{090FD7AD-15CA-D359-CDD9-EFCEA236426A}</Project>      <Name>Assembly-UnityScript-firstpass</Name>    </ProjectReference>
   </ItemGroup>

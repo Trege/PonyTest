@@ -62,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
 
 	public void FixedUpdate()
     {
-        Debug.Log(grounded);
+        
         body.drag = 0f;
         int sign = 0;
         if (Input.GetAxis("Horizontal") > 0)
@@ -104,7 +104,7 @@ public class PlayerMovement : MonoBehaviour
             jumpDelay = 0.1f;
             jumping = true;
             //Remove the next line if you don't want jumping to automatically reset your rotation
-            targetSpriteAngle = 90;
+            
         }
     
         grounded = false;
